@@ -43,4 +43,7 @@
 (setq mac-option-modifier 'super)
 
 ;; make default font Monaco size 14
-(set-frame-font "Monaco 14" nil t)
+
+(if (equal system-type 'darwin)
+    (set-frame-font "Monaco 14" nil t)
+  (set-frame-font "Monospace Bold 13" nil t))
