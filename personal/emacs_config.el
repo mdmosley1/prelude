@@ -15,10 +15,14 @@
 (prelude-require-packages '(multiple-cursors
                             ess
                             py-autopep8
-                            elpy))
+                            elpy
+                            yasnippet
+                            yasnippet-snippets))
 
 (require 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+(yas-global-mode 1) ;; enable snippets everywhere
 
 (elpy-enable)
 
