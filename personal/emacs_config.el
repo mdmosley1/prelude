@@ -32,6 +32,8 @@
 ;;smooth scrolling
 (setq prelude-use-smooth-scrolling t)
 
+(add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+
 ;;uncomment this to use default theme
 ;;(disable-theme 'zenburn)
 
