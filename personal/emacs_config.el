@@ -33,7 +33,11 @@
 (setq prelude-use-smooth-scrolling t)
 
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+(add-hook 'c-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-checker 'c/c++-gcc)))
+(add-hook 'c-mode-hook (lambda () (setq flycheck-checker 'c/c++-gcc)))
+
 
 ;;uncomment this to use default theme
 ;;(disable-theme 'zenburn)
@@ -54,3 +58,9 @@
 (if (equal system-type 'darwin)
     (set-frame-font "Monaco 14" nil t)
   (set-frame-font "Monospace Bold 13" nil t))
+
+;; setting for highlighting ros launch files: http://wiki.ros.org/roslaunch/Tutorials/Using%20Roslaunch%20with%20Emacs
+(add-to-list 'auto-mode-alist '("\\.launch$" . nxml-mode))
+;; enable C-c C-c for commenting in ros launch files
+(add-hook 'nxml-mode-hook
+          (lambda () (local-set-key (kbd "C-c C-c") #'comment-region)))
