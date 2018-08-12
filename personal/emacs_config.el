@@ -54,12 +54,15 @@
 (setq mac-option-modifier 'super)
 
 ;; make default font Monaco size 14
-
 (if (equal system-type 'darwin)
     (set-frame-font "Monaco 14" nil t)
   (set-frame-font "Monospace Bold 13" nil t))
 
-;; setting for highlighting ros launch files: http://wiki.ros.org/roslaunch/Tutorials/Using%20Roslaunch%20with%20Emacs
+;; when using emacsclient, font must be set this way. source:
+;; https://stackoverflow.com/questions/3984730/emacs-gui-with-emacs-daemon-not-loading-fonts-correctly
+(setq default-frame-alist '((font . "Monaco-14")))
+
+;; go into nxml-mode for ros launch files: http://wiki.ros.org/roslaunch/Tutorials/Using%20Roslaunch%20with%20Emacs
 (add-to-list 'auto-mode-alist '("\\.launch$" . nxml-mode))
 ;; enable C-c C-c for commenting in ros launch files
 (add-hook 'nxml-mode-hook
