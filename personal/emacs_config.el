@@ -67,3 +67,6 @@
 ;; enable C-c C-c for commenting in ros launch files
 (add-hook 'nxml-mode-hook
           (lambda () (local-set-key (kbd "C-c C-c") #'comment-region)))
+
+;; tell emacs prelude to stop deleting all the whitespace every time I save
+(setq prelude-clean-whitespace-on-save nil)
